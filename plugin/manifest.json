@@ -1,0 +1,11 @@
+{
+    "name": "My Plugin",
+    "version": "0.0.1",
+    "description": "My Plugin",
+    "manifest_version": 3,
+    "author": "Haytham Xu",
+    "action":{
+        "default_popup": "index.html"
+    },
+    "permissions": ["tabs"]
+}

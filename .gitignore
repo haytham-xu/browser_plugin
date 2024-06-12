@@ -1,0 +1,10 @@
+*.db
+*.DS_Store
+*dist
+*node_modules
+
+# Ignore everything in the 'plugin' folder
+/plugin/*
+
+# But don't ignore 'manifest.json'
+!/plugin/manifest.json

@@ -8,3 +8,7 @@
 
 # But don't ignore 'manifest.json'
 !/plugin/manifest.json
+
+*/temp.py
+*temp
+backend/config.yaml

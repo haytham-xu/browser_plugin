@@ -37,3 +37,18 @@ think step by step
     ]
 }
 '''
+
+
+#### 
+'''
+https://www.aaabbb.com/photos-slide-aid-254610.html
+帮我写一段代码,解析这个url,分成 www.aaabbb.com和photos-slide-aid-254610.html
+
+
+帮我写一段代码, 解析一个字符串的特定部分,举例如下: 
+photos-slide-aid-254610.html -> 254610
+photos-index-page-5-aid-255382.html
+photos-index-aid-252050.html
+
+
+'''

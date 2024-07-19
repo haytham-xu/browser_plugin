@@ -1,11 +1,8 @@
 
-# from flask import Flask, request, jsonify
-# from flask_sqlalchemy import SQLAlchemy
 
-# import threading
-
-# import os
-# import time
+import time
+import threading
+import datetime
 
 from flask import Flask
 from flask_cors import CORS
@@ -16,5 +13,16 @@ app = Flask(__name__)
 CORS(app)
 app.register_blueprint(app_routes)
 
+def background_task():
+    while True:
+        now = datetime.datetime.now()
+        print(f"执行后台任务: {now}")
+        time.sleep(300)
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    thread = threading.Thread(target=background_task)
+    thread.daemon = True
+    thread.start()
+
+    # app.run(debug=True)
+    app.run()

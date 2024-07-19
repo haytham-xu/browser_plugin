@@ -20,7 +20,6 @@ def create_table():
             updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             status TEXT DEFAULT 'TODO',
             retry_times INTEGER DEFAULT 0,
-            tab_url TEXT UNIQUE NOT NULL,
             file_name TEXT DEFAULT '',
             size INTEGER DEFAULT 0
         )
@@ -32,10 +31,9 @@ def insert_browser_tab(browser_tab: BrowserTab):
     conn = sqlite3.connect(config.get_db_path())
     cur = conn.cursor()
     cur.execute('''
-        INSERT INTO browser_tab (code, created_at, updated_at, status, retry_times, tab_url, file_name, size)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-    ''', (browser_tab.code, browser_tab.created_at, browser_tab.updated_at, browser_tab.status, 
-          browser_tab.retry_times, browser_tab.tab_url, browser_tab.file_name, browser_tab.size))
+        INSERT INTO browser_tab (code, created_at, updated_at, status, retry_times, file_name, size)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+    ''', (browser_tab.code, browser_tab.created_at, browser_tab.updated_at, browser_tab.status, browser_tab.retry_times, browser_tab.file_name, browser_tab.size))
     conn.commit()
     conn.close()
 
@@ -46,19 +44,19 @@ def get_all_browser_tabs():
     rows = cur.fetchall()
     browser_tabs = []
     for row in rows:
-        browser_tab = BrowserTab(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8])
+        browser_tab = BrowserTab(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7])
         browser_tabs.append(browser_tab)
     conn.close()
     return browser_tabs
 
-def get_browser_tab_by_id(tab_code):
+def get_browser_tab_by_code(tab_code):
     conn = sqlite3.connect(config.get_db_path())
     cur = conn.cursor()
     cur.execute('SELECT * FROM browser_tab WHERE code = ?', (tab_code,))
     row = cur.fetchone()
     conn.close()
     if row:
-        return BrowserTab(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8])
+        return BrowserTab(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7])
     return None
 
 def update_browser_tab(browser_tab: BrowserTab):

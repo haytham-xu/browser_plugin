@@ -45,10 +45,21 @@ https://www.aaabbb.com/photos-slide-aid-254610.html
 帮我写一段代码,解析这个url,分成 www.aaabbb.com和photos-slide-aid-254610.html
 
 
-帮我写一段代码, 解析一个字符串的特定部分,举例如下: 
+帮我写一段代码, 这段代码提供一个格式，这个格式会有两个用处
+1. 从字符串提取出目标内容，举例如下：
 photos-slide-aid-254610.html -> 254610
+photos-slide-aid-61120.html -> 61120
+photos-slide-aid-2451.html -> 2451
+2. 提供关键字段，组合并输出，举例如下：
+254610 -> photos-slide-aid-254610.html 
+34534 -> photos-slide-aid-34534.html
+1240 -> photos-slide-aid-1240.html
+
+解析一个字符串的特定部分,举例如下: 
+photos-slide-aid-254610.html -> 254610
+
+
 photos-index-page-5-aid-255382.html
 photos-index-aid-252050.html
-
 
 '''

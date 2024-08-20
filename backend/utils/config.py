@@ -21,26 +21,9 @@ class Config:
         key = "overview_uri_path_format"
         return self.all_config[key] if key in self.all_config else ""
     
-    def get_preview_uri_path_format(self):
-        key = "preview_uri_path_format"
-        return self.all_config[key] if key in self.all_config else ""
-    
     def get_download_uri_path_format(self):
         key = "download_uri_path_format"
         return self.all_config[key] if key in self.all_config else ""
-
-    def get_overview_uri_path_format(self):
-        key = "overview_uri_path_format"
-        return self.all_config[key] if key in self.all_config else ""
-    
-    def get_preview_uri_path_format(self):
-        key = "preview_uri_path_format"
-        return self.all_config[key] if key in self.all_config else ""
-    
-    def get_download_uri_path_format(self):
-        key = "download_uri_path_format"
-        return self.all_config[key] if key in self.all_config else ""
-
     
 config = Config()
     
